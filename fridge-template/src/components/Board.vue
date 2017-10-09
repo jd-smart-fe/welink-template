@@ -43,35 +43,32 @@ export default {
   },
 
   props: {
+    // 面板标题
     title: {
       type: String,
       default: '',
     },
+    // 是否需要开关按钮
     hasSwitch: {
       type: Boolean,
       default: false,
     },
+    // 显示的温度数字
     num: {
       type: [Number, String],
       default: NaN,
     },
-    // 禁用开关
+    // 开关置为禁用状态
     disabled: {
       type: Boolean,
       default: false,
     },
-    // 隐藏数字，显示关闭文案
-    // 废弃！！！，由switchValue 控制
-    close: {
-      type: Boolean,
-      default: null,
-    },
-    // 开关的值，true为开，false为关
+    // 开关状态，true为开，false为关
     switchValue: {
       type: Boolean,
       default: null,
     },
-    // 整数时是否显示小数点。 int 时 5, float 时 5.0
+    // 数字显示模式。 例如当 num === 5 时：取值 int 时显示 5, float 时显示 5.0
     accur: {
       type: String,
       required: false,

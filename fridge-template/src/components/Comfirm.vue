@@ -18,10 +18,12 @@ export default {
   name: 'confirm',
 
   props: {
+    // 弹窗标题
     title: {
       type: String,
       default: '',
     },
+    // 弹窗内容
     content: {
       type: String,
       default: '',

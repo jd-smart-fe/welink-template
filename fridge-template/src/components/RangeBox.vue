@@ -44,6 +44,34 @@ export default {
   },
 
   props: {
+    // 实际可调节的温度最小值
+    min: {
+      type: [Number, String],
+      default: -24,
+    },
+    // 实际可调节的温度最大值
+    max: {
+      type: [Number, String],
+      default: 18,
+    },
+    // 当前的温度值
+    val: {
+      type: [Number, String],
+      default: 0,
+    },
+    // 置滑动条为禁止滑动状态
+    disabled: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    // 值为 int 时，滑动步距为 1；值为 float 时，滑动步距为 0.1
+    accur: {
+      type: String,
+      required: false,
+      default: 'int',    // float int
+    },
+
     // 专为美菱冰箱设计 滑杆最左侧显示的温度
     displayMin: {
       type: [Number, String],
@@ -64,33 +92,6 @@ export default {
       type: Boolean,
       required: false,
       default: false,
-    },
-    // 实际调节可调节的温度最小值
-    min: {
-      type: [Number, String],
-      default: -24,
-    },
-    // 实际调节可调节的温度最大值
-    max: {
-      type: [Number, String],
-      default: 18,
-    },
-    // 当前的温度值
-    val: {
-      type: [Number, String],
-      default: 0,
-    },
-    // 是否禁用滑动条
-    disabled: {
-      type: Boolean,
-      required: false,
-      default: false,
-    },
-    // 滑动步距为 0.1
-    accur: {
-      type: String,
-      required: false,
-      default: 'int',    // float int
     },
   },
 

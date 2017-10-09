@@ -17,16 +17,17 @@ export default {
   },
 
   props: {
+    // 模式名称 
     title: {
       type: String,
       required: true,
     },
-
+    // icon 的 CSS类名 
     iconCls: {
       type: String,
       required: true,
     },
-
+    // 置该模式为禁止点击状态 
     disabled: {
       type: Boolean,
       default: false,

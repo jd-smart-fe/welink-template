@@ -171,7 +171,12 @@ export default {
       loadingShow: false,
       // 是否离线
       offline: false,
-      // debug 开关
+      /**
+       * 页面右上角隐藏了一个 button，点击 10 次会出现 debug 框，
+       * 里面会打印出每一次控制后下发的命令和收到的命令，这对于在 app
+       * 上进行调试会有很大的帮助。
+       * 如果你想关闭该功能，只需将下面 UsingDebug 的值置为 false 即可。
+       */
       UsingDebug: true,
       // 调试用
       showDebugInfo: 0,
@@ -233,7 +238,7 @@ export default {
     },
   },
 
-  created() {
+  mounted() {
     window.JDSMART.ready(() => {
       // 获取设备快照
       this.getSnapshot();
@@ -246,9 +251,8 @@ export default {
         this.getSnapshot();
       }
     });
-  },
 
-  mounted() {
+    // 长连接
     window.onReceive = rowData => {
       this.debug('onReceive', rowData);
       const data = typeof rowData === 'string'
