@@ -36,7 +36,6 @@ export default {
 </script>
 
 <style lang="postcss">
-@import '../styles/variables.css';
 
 .mode-button{
   &.disabled {
@@ -60,7 +59,7 @@ export default {
     white-space: nowrap;
 
     @media screen and (max-width: 375px) {
-      font-size: $min-font-size;
+      font-size: 12px;
     }
   }
 }

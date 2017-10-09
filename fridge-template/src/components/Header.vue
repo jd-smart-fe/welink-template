@@ -67,7 +67,6 @@ export default {
 </script>
 
 <style lang="postcss">
-@import '../styles/variables.css';
 
 .header{
   display: flex;
@@ -80,7 +79,7 @@ export default {
   line-height: .22rem;
 
   @media screen and (max-width: 375px) {
-    font-size: $min-font-size-xl;
+    font-size: 13px;
   }
 
   .grey{

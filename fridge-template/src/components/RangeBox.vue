@@ -157,7 +157,6 @@ export default {
 </script>
 
 <style  lang="postcss">
-@import '../styles/variables.css';
 
 .rbox {
   display: flex;
@@ -197,7 +196,7 @@ export default {
   color: #999;
 
   @media screen and (max-width: 375px) {
-    font-size: $min-font-size;
+    font-size: 12px;
   }
 }
 
@@ -243,7 +242,7 @@ export default {
     font-size: .14rem;
 
     @media screen and (max-width: 375px) {
-      font-size: $min-font-size;
+      font-size: 12px;
     }
   }
 

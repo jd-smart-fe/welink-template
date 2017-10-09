@@ -40,7 +40,6 @@ export default {
 </script>
 
 <style lang="css">
-@import '../styles/variables.css';
 
 .confirm{
   position: fixed;
@@ -72,7 +71,7 @@ export default {
     margin-bottom: .2rem;
 
     @media screen and (max-width: 375px) {
-      font-size: $min-font-size-xl;
+      font-size: 13px;
     }
   }
 
@@ -82,7 +81,7 @@ export default {
     color: #666;
 
     @media screen and (max-width: 375px) {
-      font-size: $min-font-size;
+      font-size: 12px;
     }
   }
 }
@@ -94,7 +93,7 @@ export default {
   border-top: 1px solid #e1e1e1;
 
   @media screen and (max-width: 375px) {
-    font-size: $min-font-size-xl;
+    font-size: 13px;
   }
 
   .cancel{

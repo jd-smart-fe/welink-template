@@ -88,8 +88,6 @@ export default {
 </script>
 
 <style lang="postcss">
-@import '../styles/variables.css';
-
 .board{
   margin: .15rem;
   margin-top: .075rem;
@@ -103,7 +101,7 @@ export default {
   line-height:.27rem;
 
   @media screen and (max-width: 375px) {
-    font-size: $min-font-size-xl;
+    font-size: 13px;
   }
 
   > div{

@@ -275,6 +275,9 @@ export default {
   },
 
   methods: {
+    /**
+     * reformat streams data
+     */
     fullMap(streams) {
       const propMap = {};
       for (const item of streams) {
@@ -283,6 +286,9 @@ export default {
       return propMap;
     },
 
+    /**
+     * 根据传入的 data 来同步页面 UI
+     */
     updateView(data) {
       const propMap = typeof data.result === 'object'
         ? this.fullMap(data.result.streams)
@@ -334,10 +340,6 @@ export default {
       }
     },
 
-    controlModeButton(mode) {
-      this.controlDevice({ [mode]: this[mode] ? 0 : 1 });
-    },
-
     handleConfirmCancel() {
       this.confirmShow = false;
     },
@@ -348,6 +350,13 @@ export default {
       this.confirmShow = false;
     },
 
+    controlModeButton(mode) {
+      this.controlDevice({ [mode]: this[mode] ? 0 : 1 });
+    },
+
+    /**
+     * 获取快照
+     */
     getSnapshot(success, fail) {
       window.smartSDK.getSnapshot(null, data => {
         this.debug('getSnapshotTimes', data);
@@ -369,6 +378,9 @@ export default {
       });
     },
 
+    /**
+     * 下发命令
+     */
     controlDevice(cmd, success, fail) {
       this.debug('controlDevice_req', cmd);
       const command = window.smartSDK.getCommand(cmd);
