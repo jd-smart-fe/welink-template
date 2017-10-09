@@ -1,0 +1,64 @@
+body {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #eee;
+  color: #333;
+  font-size: .14rem;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.mode {
+  display: flex;
+  height: 100%;
+
+  >div {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.mode-border > div +div {
+  border-left: 1px solid #eaeaea;
+}
+
+.tips {
+  color: #f37611;
+  font-size: .15rem;
+  text-align: center;
+  line-height: .3rem;
+  height: 0;
+  transition: height .5s ease-out;
+  overflow: hidden;
+
+  &.show {
+    height: .3rem;
+  }
+}
+
+.tips-icon {
+  display: inline-block;
+  width: .2rem;
+  height: .2rem;
+  margin-right: .07rem;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  vertical-align: -11%;
+}
+
+.debug-button {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 9999;
+}
+#debugarea {
+  position: relative;
+  z-index: 99999;
+}

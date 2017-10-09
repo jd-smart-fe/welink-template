@@ -1,0 +1,111 @@
+$grid-size: 0.26rem;    /* 12 grid */
+$main-width: 3.12rem;   /* 0.26 * 12 */
+
+$main-color: #59B8FC;
+
+$c-primary: #59B8FC;
+$c-primary-on: #2c99e6;
+/********************  length  ********************/
+$l-radius: 3px;
+
+/********************  font size  ********************/
+$font-size-xs:   10px;
+$font-size-sm:   12px;
+$font-size-base: 14px;
+$font-size-lg:   16px;
+$font-size-xl:   18px;
+$font-size-32:   32px;
+
+
+/********************  color  ********************/
+$gray-dark: #333;
+$gray: #666;
+$gray-light: #999;
+$gray-lighter: #ccc;
+$gray-lightest: #eee;
+$white: #fff;
+$blue: #59B8FC;
+$orange: #f76b46;
+
+
+/********************  component theme  ********************/
+
+
+
+/********************  dayspicker  ********************/
+
+$dayspicker-item-width: 0.54rem;
+$dayspicker-item-height: 0.26rem;
+$dayspicker-item-radius: 4px;
+$dayspicker-padding-y: 0.12rem;
+
+$t-dayspicker-font-size: $font-size-sm;
+$t-dayspicker-defcolor: $gray-light;
+$t-dayspicker-lightcolor: $blue;
+
+
+
+/********************  range  ********************/
+$range-padding-y: 0.16rem;
+$range-slide-height: 2px;
+$range-slide-button-size: 24px;
+$range-padding-x: calc($range-slide-button-size/2);
+$range-slide-button-border: 2px;
+$range-slide-stepdot-size: 4px;
+$range-slide-dot-size: 24px;
+
+$t-range-defcolor: $gray-lighter;
+$t-range-lightcolor: $c-primary;
+
+/************************  switch   ************************/
+
+$switch-width: 0.58rem;
+$switch-height: 0.28rem;
+$switch-background-color-off: #d5d5d5;
+$switch-background-color-on: $c-primary;
+
+$switch-btn-width: .22rem;
+$switch-btn-height: .22rem;
+$switch-btn-background-color: #fff;
+
+$switch-transform-x-off: .04rem;
+$switch-transform-x-on: 0.32rem;
+
+/************************  power   ************************/
+$power-width: 0.45rem;
+$power-height: 0.45rem;
+
+$t-power-offcolor: #fff;
+$t-power-oncolor: $c-primary;
+
+/************************  button  ************************/
+$btn-padding-sm: 0.06rem 0.08rem;
+$btn-fontsize-sm: $font-size-sm;
+$btn-radius-sm: 0.05rem;
+
+$btn-padding-base: 0.1rem 0.16rem;
+$btn-fontsize-base: $font-size-base;
+
+$btn-padding-lg: 0.14rem 0.26rem;
+$btn-fontsize-lg: $font-size-lg;
+
+$btn-icon-only-width-lg: 0.52rem;
+$btn-icon-only-width-base: 0.36rem;
+$btn-icon-only-width-sm: 0.24rem;
+
+$btn-disabled: #efefef;
+$btn-hover: #efefef; /* 按钮按下底色 */
+
+/************************  counter  ************************/
+$counter-width: 1.03rem;
+$counter-height: 0.35rem;
+
+
+/************************  checkboard  ************************/
+$c-checkboard-item-padding: 0.12rem 0;
+$c-checkboard-icon-width: 0.1rem;
+$c-checkboard-icon-height: 0.1rem;
+$c-checkboard-icon-size: 0.14rem;
+
+/************************  modal   ************************/
+$c-dialog-title: #333;

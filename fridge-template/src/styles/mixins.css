@@ -1,0 +1,73 @@
+
+/*@define-extend border {
+  border-width: 1px;
+  border-style: solid;
+}
+*/
+
+@define-mixin border $width: 1px, $style: solid {
+  border-width: 1px;
+  border-style: solid;
+}
+
+@define-mixin border-top-radius $radius: 3px {
+  border-top-right-radius: $radius;
+  border-top-left-radius: $radius;
+}
+
+@define-mixin border-bottom-radius $radius: 3px {
+  border-bottom-right-radius: $radius;
+  border-bottom-left-radius: $radius;
+}
+
+@define-mixin transition $prop: all, $duration: 0.3s, $delay: 0s {
+  transition: $prop $duration $delay;
+  transition-timing-function: ease;
+}
+
+@define-mixin box-shadow $prop {
+  box-shadow: 0 1px 1px rgba(0,0,0,.01);
+}
+
+@define-mixin bd1 $color: #eee {
+  border-top: 1px solid $color;
+}
+
+@define-mixin cross-center {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  justify-content: space-between;
+}
+
+@define-mixin main-center {
+  display: flex;
+  justify-content: center;
+}
+
+@define-mixin center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/*  TODO: 未用到，后续可以删除。
+@define-mixin without-padding $main: 1, $cross: 1 {
+
+  @if $main == 0 {
+    .without-main-padding {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  @if $cross == 0 {
+    .without-cross-padding {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+}
+*/
