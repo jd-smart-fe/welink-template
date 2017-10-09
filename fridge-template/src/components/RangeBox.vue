@@ -3,7 +3,7 @@
     <div class="rbox-begin">
       <div class="rbox-icon"></div>
       <div class="rbox-num">
-        {{ begin }}°C
+        {{ displayMin || min }}°C
       </div>
     </div>
     <div class="rbox-content">
@@ -25,7 +25,7 @@
     <div class="rbox-end">
       <div class="rbox-icon"></div>
       <div class="rbox-num">
-        {{ end }}°C
+        {{ displayMax || max }}°C
       </div>
     </div>
   </div>
@@ -44,44 +44,49 @@ export default {
   },
 
   props: {
-    // 滑杆最左侧显示的温度
-    begin: {
+    // 专为美菱冰箱设计 滑杆最左侧显示的温度
+    displayMin: {
       type: [Number, String],
-      default: -32,
+      default: null,
     },
-    // 滑杆最右侧显示的温度
-    end: {
+    // 专为美菱冰箱设计 滑杆最右侧显示的温度
+    displayMax: {
       type: [Number, String],
-      default: 18,
+      default: null,
     },
+    // 专为美菱冰箱设计
     middle: {
       type: [Number, String],
       default: -99,
     },
-    // 实际调节可调节 min
-    min: {
-      type: [Number, String],
-      default: -24,
-    },
-    // 实际调节可调节 max
-    max: {
-      type: [Number, String],
-      default: 18,
-    },
-    val: {
-      type: [Number, String],
-      default: 0,
-    },
-    disabled: {
-      type: Boolean,
-      required: false,
-      default: false,
-    },
+    // 专为美菱冰箱设计 温度跳跃到最小值
     minCold: {
       type: Boolean,
       required: false,
       default: false,
     },
+    // 实际调节可调节的温度最小值
+    min: {
+      type: [Number, String],
+      default: -24,
+    },
+    // 实际调节可调节的温度最大值
+    max: {
+      type: [Number, String],
+      default: 18,
+    },
+    // 当前的温度值
+    val: {
+      type: [Number, String],
+      default: 0,
+    },
+    // 是否禁用滑动条
+    disabled: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    // 滑动步距为 0.1
     accur: {
       type: String,
       required: false,
@@ -121,10 +126,9 @@ export default {
         : val;
 
       if (this.accur === 'float' && val % 10 === 0) {
-        this.$emit('change_value', `${realValue}.0`);
-
+        this.$emit('sliding', `${realValue}.0`);
       } else {
-        this.$emit('change_value', realValue);
+        this.$emit('sliding', realValue);
       }
     },
   },
@@ -136,16 +140,16 @@ export default {
   },
 
   mounted() {
-    this.$refs.range.$on('final_change', val => {
+    this.$refs.range.$on('change', val => {
       const realValue = this.accur === 'float'
         ? val / 10
         : val;
 
       if (this.accur === 'float' && val % 10 === 0) {
-        this.$emit('final_change', `${realValue}.0`);
+        this.$emit('change', `${realValue}.0`);
 
       } else {
-        this.$emit('final_change', realValue);
+        this.$emit('change', realValue);
       }
     });
   },

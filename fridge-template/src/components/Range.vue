@@ -423,7 +423,7 @@
           this.setProcessPercent(processPercent);
         } */
         this.$emit('input', this.currentValue);
-        this.$emit('final_change', this.currentValue);
+        this.$emit('change', this.currentValue);
 
         // 如果用户设置了显示当前值得话 在滑动结束时隐藏其层;
         if (this.show_tip) {

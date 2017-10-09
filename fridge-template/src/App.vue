@@ -2,8 +2,8 @@
   <div id="app">
 
     <!-- debug -->
-    <div class="debug-button" @click="showDebugInfo += 1"></div>
-    <div id="debugarea" v-show="showDebugInfo > 10">
+    <div v-if="UsingDebug" class="debug-button" @click="showDebugInfo += 1"></div>
+    <div v-if="UsingDebug" id="debugarea" v-show="showDebugInfo > 10">
       <button @click="showDebugInfo = 0"> close </button>
       <button @click="info = ''"> clearInfo </button>
       <button @click="offline = false"> closeMask </button>
@@ -63,17 +63,15 @@
       </board>
 
       <!-- 冰箱室 -->
-      <board title="冷藏室"
+      <board
+        title="冷藏室"
         :hasSwitch="true"
         :num="fritemp"
         :close="!fripower"
-        :disabled="false"
         :switchValue="fripower"
         @changeSwitch="handleSwitch('fripower')"
       >
         <range-box
-          :begin="2"
-          :end="8"
           :min="2"
           :max="8"
           :val="fritemp"
@@ -84,15 +82,13 @@
 
       <board
         title="变温室"
+        :hasSwitch="true"
         :num="vartemp"
         :close="!varpower"
-        :disabled="false"
         :switchValue="varpower"
         @changeSwitch="handleSwitch('varpower')"
       >
         <range-box
-          :begin="-7"
-          :end="5"
           :min="-7"
           :max="5"
           :val="vartemp"
@@ -106,8 +102,6 @@
         :num="fretemp"
       >
         <range-box
-          :begin="-24"
-          :end="-16"
           :min="-24"
           :max="-16"
           :val="fretemp"
@@ -172,10 +166,13 @@ export default {
       confirmShow: false,
       confirmShowTitle: '',
       confirmContent: '',
+      willChangeRoom: null,
       // 展示 loading
       loadingShow: false,
       // 是否离线
       offline: false,
+      // debug 开关
+      UsingDebug: true,
       // 调试用
       showDebugInfo: 0,
       info: '',
@@ -242,7 +239,7 @@ export default {
       this.getSnapshot();
     });
 
-    // 页面可见性变化时需要重新获取快照更新UI
+    // 页面可见性变化时需要重新获取快照更新 UI
     window.pageVisibility.visibilitychange(() => {
       if (window.pageVisibility.hidden === false) {
         this.debug('visibility change');
@@ -253,14 +250,13 @@ export default {
 
   mounted() {
     window.onReceive = rowData => {
-      this.debug('onReceiveTimes', rowData);
+      this.debug('onReceive', rowData);
       const data = typeof rowData === 'string'
         ? JSON.parse(rowData)
         : rowData;
       if (!data) return;
 
       const indata = data.body.data;
-      this.offlineFilter(indata);
       if (indata.result.status == 1 && indata.result.streams.length > 0) {
         this.offline = false;
         this.loadingShow = false;
@@ -269,10 +265,10 @@ export default {
     };
 
     ['fritemp', 'fretemp', 'vartemp'].forEach((item) => {
-      this.$refs[item].$on('change_value', val => {
+      this.$refs[item].$on('sliding', val => {
         this[item] = val;
       });
-      this.$refs[item].$on('final_change', val => {
+      this.$refs[item].$on('change', val => {
         this.controlDevice({ [item]: val });
       });
     });
@@ -294,12 +290,7 @@ export default {
 
       // 同步模式
       const modelist = [];
-      ['smartmode', 'fastfrimode', 'fastfremode', 'holidaymode'].forEach(mode => {
-        if (this[mode] !== undefined) {
-          modelist.push(mode);
-        }
-      });
-      modelist.forEach(mode => {
+      ['smartmode', 'fastfrimode', 'fastfremode'].forEach(mode => {
         this[mode] = window.parseInt(propMap[mode]) === 1;
       });
 
@@ -337,6 +328,7 @@ export default {
         this.confirmShowTitle = '确认关闭吗？';
         this.confirmContent = strategies[val].content;
         this.confirmShow = true;
+        this.willChangeRoom = val;
       } else {
         this.controlDevice({ [val]: 1 });
       }
@@ -351,7 +343,8 @@ export default {
     },
 
     handleConfirmAccept() {
-      this.controlDevice({ fripower: 0 });
+      const roomPower = this.willChangeRoom;
+      this.controlDevice({ [roomPower]: 0 });
       this.confirmShow = false;
     },
 
@@ -413,6 +406,9 @@ export default {
     },
 
     debug(...p) {
+      if (!this.UsingDebug) {
+        return;
+      }
       const time = new Date();
       const logs = p.map(log => typeof log === 'string' ? log : JSON.stringify(log));
       logs.unshift(time.toLocaleString());
