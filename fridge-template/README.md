@@ -1,5 +1,7 @@
 # 冰箱控制 H5 模板
 
+[冰箱模板 GITHUB](https://github.com/jd-smart-fe/welink-template/tree/master/fridge-template)
+
 ## 安装项目
 
 ``` bash
