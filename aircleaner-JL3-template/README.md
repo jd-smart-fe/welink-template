@@ -26,9 +26,9 @@ npm run build --report
 
 ### 公共组件简介
 
-本项目使用了vue-stone组件库，具体的使用方案可以查看Github:(https://github.com/jd-smart-fe/vue-stone)。
+本项目使用了vue-stone组件库，具体的使用方案可以查看Github:[vue-stone](https://github.com/jd-smart-fe/vue-stone/)。
 
 ### JSSDK
 
-src/libs目录下的SmartSDK2-0-0.js文件是对 index.html中JSSDK:（https://storage.jd.com/testsmartcloud/jdsmart-2.0.2-core.js）引用文件的封装，开发者可以根据需求进行修改。JSSDK文档说明可以在开发者中心（https://smartdev.jd.com）文档中心下载。
+src/libs目录下的SmartSDK2-0-0.js文件是对 index.html中[JSSDK](https://storage.jd.com/testsmartcloud/jdsmart-2.0.2-core.js)引用文件的封装，开发者可以根据需求进行修改。JSSDK文档说明可以在开发者中心 [文档中心](https://smartdev.jd.com/)下载。
 
