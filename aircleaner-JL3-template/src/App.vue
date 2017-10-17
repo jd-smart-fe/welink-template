@@ -103,6 +103,7 @@ export default {
          });
       }
     });
+    // 滑杆滑动
     this.$refs.rangeArray.$on('change', (value) => {
       window.console.log(value);
       const datas = [{ name: 'wind', type: 'i', data: value, len: 4 }];
@@ -115,7 +116,6 @@ export default {
        });
     });
     window.JDSMART.ready(() => {
-      // window.console.log(2);
       // 判断是否在线
       this.onLineIs();
       // 获取快照信息
