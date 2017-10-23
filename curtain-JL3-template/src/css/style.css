@@ -1,0 +1,87 @@
+@charset "UTF-8";
+/* CSS Document */
+html{-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; height:100%;}
+*{-webkit-tap-highlight-color:transparent;outline:0;}
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td{margin:0;padding:0;vertical-align:baseline}
+i,em{font-style:normal}
+ol,ul,li{list-style:none}
+input,select,button,h1,h2,h3,h4,h5,h6{font-size:100%;font-family:inherit}
+a,a:visited{text-decoration:none;color:#fff}
+body{margin:0 auto; min-width:320px; max-width:1024px; background:#efefef;font-size:14px;font-family:Helvetica,STHeiti STXihei, Microsoft JhengHei, Microsoft YaHei, Arial;line-height:1.5;color:#666;-webkit-text-size-adjust:100% !important;-webkit-user-select:none;user-select:none;}
+img{ width:100%; height:auto;border:none; interpolation-mode: bicubic;border:0;vertical-align:top}
+.txt-center{ text-align:center;}
+.txt-justify{ text-align:justify; text-justify:inter-ideograph;}
+header{ max-width:1024px; position:relative;}
+header span{ display:block; width:100px; height:50px; position:absolute; top:50%; left:50%; margin:-30px 0 0 -50px; text-align:center; color:#fff; font-size:46px;}
+header span em{color:#c3ecdc; font-size:14px;}
+section{ width:640px; position:relative;background-size:100%}
+
+.curtai{ margin:2%; border:#eaeaea 1px solid; overflow:hidden; border-radius:5px; border-bottom:0; background:#fff;}
+.curtai h3{ padding:4% 5%; position:relative; font-size:16px;}
+.curtai h3 em{ width:12px; height:12px; display:block; overflow:hidden; text-indent:-9999px; position:absolute; top:50%; right:20px; margin-top:-6px; border-top:#9b9b9b 3px solid;border-left:#9b9b9b 3px solid; transform: rotate(135deg); -webkit-transform: rotate(135deg); z-index:999}
+.curtai .list{ width:100%; overflow:hidden; border-top:#eaeaea 1px solid;}
+.curtai .list button{ float:left; width:33%; border:0; margin:0; border-left:#eaeaea 1px solid;border-bottom:#eaeaea 1px solid; padding:5% 0; background:none; margin-bottom:-1px; color:#999;}
+.curtai .list button.cur{ background:#2bbe89; color:#fff;}
+.curtai .time{ padding:15px 5%; position:relative;border-top:#eaeaea 1px solid;}
+.curtai .time span{ color:#00b8ec; font-size:16px;}
+.curtai .time span.time_text{ display:none; color:#999; font-size:14px; margin-left:8px;}
+.curtai .time button{ position:absolute; top:10px; right:12px; border:#00b8ec 1px solid; border-radius:20px; padding:0 12px; height:30px; background:none; color:#00b8ec}
+
+.khtj{ padding-top:20px; height:60px; text-align:center; position:relative; border-top:#eaeaea 1px solid;}
+.khtj output{ font-size:16px; text-align:center;}
+.khtj form{ width:86%; margin:auto; border-bottom:#2bbe89 2px solid; height:10px;}
+.khtj input[type=range] {-webkit-appearance: none; width:106%; margin-left:-3%; background:none}
+.khtj input[type=range]:focus {outline: none; }
+.khtj input[type=range]::-ms-track {width: 100%;cursor: pointer;}
+.khtj p{ position:absolute; top:-40px;position:absolute; left:128px; }
+.khtj .llrr{ width:100%; height:10px; position:relative; z-index:0}
+.khtj .llrr i{ display:block; width:8px; height:8px; background:#2bbe89; border-radius:50%;top:-22px; position:absolute;}
+.khtj .llrr i em{ position:absolute;top:15px; left:0px; position:absolute;}
+.khtj .llrr i.ll{ left:0px;}
+.khtj .llrr i.rr{ right:0px;}
+.khtj .llrr i.rr em{ left:-8px}
+
+
+
+/* .tanbox{ width:86%; position:fixed; top:30%; left:7%; padding:10px 0 0; background:#fff; border-radius:10px; overflow:hidden; z-index:999}
+.tanbox h3{line-height:50px; font-size:16px; text-align:center;}
+.tanbox .con{ position:relative; text-align:center; width:80%; padding:8px; color:#999; line-height:24px;}
+.tanbox .tanbut{ height:50px; overflow:hidden; margin-top:20px; border-top:#c1c1c1 1px solid;}
+.tanbox .tanbut button{ float:left; height:50px; width:50%; border:0; background:#fff; margin-left:-1px; color:#333333; border-left:#c1c1c1 1px solid; tap-highlight-color:rgba(238,238,238,1);-webkit-tap-highlight-color:rgba(238,238,238,1);}
+.tanbox .tanbut  button:active{ background:rgba(238,238,238,1)} */
+
+/* .dowtop{ -webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);-webkit-animation:dowtop .5s 1; animation:dowtop .5s 1; z-index:999;}
+.topdow{-webkit-transform:translate3d(0,200%,0);transform:translate3d(0,200%,0);-webkit-animation:topdow .5s 1; animation:topdow .5s 1; z-index:999;} */
+.mask{ background:rgba(0,0,0,.4); position:fixed; z-index:99; top:0; left:0; width:100%; height:100%;}
+
+@-webkit-keyframes dowtop{
+	0%{ -webkit-transform:translate3d(0,120%,0);}
+	100%{ -webkit-transform:translate3d(0,0,0);}
+	}
+@keyframes dowtop{
+	0%{ transform:translate3d(0,120%,0);}
+	100%{ transform:translate3d(0,0,0);}
+	}
+@-webkit-keyframes topdow{
+	0%{ opacity:1;-webkit-transform:translate3d(0,0,0);}
+	100%{ opacity:0;-webkit-transform:translate3d(0,120%,0);}
+	}
+@keyframes topdow{
+	0%{ opacity:1;transform:translate3d(0,0,0);}
+	100%{ opacity:0;transform:translate3d(0,120%,0);}
+	}
+
+@media (max-width:375px){
+.khtj p{ top:-38px;}
+}
+@media  (max-width:340px){
+.khtj p{ top:-35px;}
+}
+@media (max-height:480px){}
+
+@media (max-width:640px){
+section,header{ width:100%; }
+.footbut,.abs{ width:100%}
+}
+
+
