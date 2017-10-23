@@ -22,7 +22,7 @@ npm run build --report
 
 > 该模板基于 Vue 框架，Vue 有着体积小，速度快，上手易等优点，同时还有这一个非常棒的中文文档 [Vue 中文文档](https://cn.vuejs.org/v2/guide/)，如果你对 Vue 还不是很熟悉，建议可以先快速浏览一下 Vue 的文档。
 
-窗帘设备 H5 模板提供了一个完整的 窗帘 项目示例，你只需要根据具体的业务需求来对项目进行简单的整改即可。
+调光面板设备 H5 模板提供了一个完整的 调光面板 项目示例，你只需要根据具体的业务需求来对项目进行简单的整改即可。
 
 ### 公共组件简介
 
@@ -34,4 +34,4 @@ src/libs目录下的SmartSDK2-0-0.js文件是对 index.html中[JSSDK](https://st
 
 ### 协议版本
 
- 此模版对应Joylink3.0服务定义: com.joylink.curtain
+ 此模版对应Joylink3.0服务定义: com.joylink.dimmer
