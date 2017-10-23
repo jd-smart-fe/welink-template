@@ -11,3 +11,4 @@
 - [窗帘3.0协议 H5 模版](https://github.com/jd-smart-fe/welink-template/tree/master/curtain-JL3-template)
 - [调光面板3.0协议 H5 模版](https://github.com/jd-smart-fe/welink-template/tree/master/dimmer-JL3-template)
 - [地暖3.0协议 H5 模版](https://github.com/jd-smart-fe/welink-template/tree/master/floorHeating-JL3-template)
+- [多位开关3.0协议 H5 模版](https://github.com/jd-smart-fe/welink-template/tree/master/panelSwitch-JL3-template)
