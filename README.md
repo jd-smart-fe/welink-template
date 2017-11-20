@@ -14,3 +14,4 @@
 - [多位开关3.0协议 H5 模版](https://github.com/jd-smart-fe/welink-template/tree/master/panelSwitch-JL3-template)
 - [人体感应灯3.0协议 H5 模版](https://github.com/jd-smart-fe/welink-template/tree/master/inductionLight-JL3-template)
 - [无线报警按钮3.0协议 H5 模版](https://github.com/jd-smart-fe/welink-template/tree/master/alarmbutton-JL3-template)
+- [智能门锁3.0协议 H5 模版](https://github.com/jd-smart-fe/welink-template/tree/master/smartLock-JL3-template)
