@@ -16,3 +16,4 @@
 - [无线报警按钮3.0协议 H5 模版](https://github.com/jd-smart-fe/welink-template/tree/master/alarmbutton-JL3-template)
 - [智能门锁3.0协议 H5 模版](https://github.com/jd-smart-fe/welink-template/tree/master/smartLock-JL3-template)
 - [空气监测仪3.0协议 H5 模版](https://github.com/jd-smart-fe/welink-template/tree/master/airMonitoring-JL3-template)
+- [空气压力传感器3.0协议 H5 模版](https://github.com/jd-smart-fe/welink-template/tree/master/airPressure-JL3-template)
