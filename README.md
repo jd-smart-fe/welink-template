@@ -2,6 +2,18 @@
 
 > 微联项目模板库
 
+## Install Template
+
+推荐使用 `welink-cli` 工具安装模板
+
+```bash
+$ npm install -g welink-cli
+$ welink init <template> <project>
+$ cd <project>
+$ npm install
+$ npm run dev
+```
+
 ## Template List
 
 - [冰箱控制 H5 模板](https://github.com/jd-smart-fe/welink-template/tree/master/fridge-template)
