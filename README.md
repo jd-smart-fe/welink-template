@@ -4,7 +4,7 @@
 
 ## Install Template
 
-推荐使用 `welink-cli` 工具安装模板
+推荐使用 [welink-cli](https://github.com/jd-smart-fe/welink-cli) 工具安装模板
 
 ```bash
 $ npm install -g welink-cli
