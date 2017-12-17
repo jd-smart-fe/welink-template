@@ -301,14 +301,15 @@ export default {
       // 同步模式
       const modelist = [];
       ['smartmode', 'fastfrimode', 'fastfremode'].forEach(mode => {
-        this[mode] = window.parseInt(propMap[mode]) === 1;
+        if (typeof propMap[mode] !== 'undefined') {
+          this[mode] = window.parseInt(propMap[mode]) === 1;
+        }
       });
 
       // 同步温度
       ['fritemp', 'fretemp', 'vartemp'].forEach((temp) => {
-        if (typeof this[temp] !== 'undefined') {
-          typeof propMap[temp] !== 'undefined'
-            ? this[temp] = propMap[temp] : '';
+        if (typeof propMap[temp] !== 'undefined') {
+          this[temp] = propMap[temp];
         }
       });
 
@@ -502,7 +503,7 @@ export default {
     background-image: url(./assets/img/fastfremode_running.png);
   }
 
-  .tips {
+  .tips-item {
     color: #f37611;
     font-size: .15rem;
     text-align: center;
