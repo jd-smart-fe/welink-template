@@ -15,8 +15,9 @@ $ npm run dev
 ```
 
 ## Template List
-
+### JoyLink 3.0
 - [冰箱控制 H5 模板](https://github.com/jd-smart-fe/welink-template/tree/master/fridge-template)
+: fridge-template
 - [空气净化器3.0协议 H5 模板](https://github.com/jd-smart-fe/welink-template/tree/master/aircleaner-JL3-template)
 - [空调3.0协议 H5 模板](https://github.com/jd-smart-fe/welink-template/tree/master/airconditioner-JL3-template)
 - [新风系统3.0协议 H5 模板](https://github.com/jd-smart-fe/welink-template/tree/master/airpurifier-JL3-template)
@@ -29,3 +30,5 @@ $ npm run dev
 - [智能门锁3.0协议 H5 模版](https://github.com/jd-smart-fe/welink-template/tree/master/smartLock-JL3-template)
 - [空气监测仪3.0协议 H5 模版](https://github.com/jd-smart-fe/welink-template/tree/master/airMonitoring-JL3-template)
 - [空气压力传感器3.0协议 H5 模版](https://github.com/jd-smart-fe/welink-template/tree/master/airPressure-JL3-template)
+### JoyLink 2.0
+- [空调2.0协议 H5 模版] (https://github.com/jd-smart-fe/welink-template/tree/master/conditioning-JL2-template) 
