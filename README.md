@@ -14,10 +14,10 @@ $ npm install
 $ npm run dev
 ```
 
-## Template List
+## Template List 
+模版路径及对应名称如下：
 ### JoyLink 3.0
-- [冰箱控制 H5 模板](https://github.com/jd-smart-fe/welink-template/tree/master/fridge-template)
-: fridge-template
+
 - [空气净化器3.0协议 H5 模板](https://github.com/jd-smart-fe/welink-template/tree/master/aircleaner-JL3-template)
 : aircleaner-JL3-template
 - [空调3.0协议 H5 模板](https://github.com/jd-smart-fe/welink-template/tree/master/airconditioner-JL3-template)
@@ -43,6 +43,9 @@ $ npm run dev
 - [空气压力传感器3.0协议 H5 模版](https://github.com/jd-smart-fe/welink-template/tree/master/airPressure-JL3-template)
 : airPressure-JL3-template
 ### JoyLink 2.0
+
 - [空调2.0协议 H5 模版](https://github.com/jd-smart-fe/welink-template/tree/master/conditioning-JL2-template)
 : conditioning-JL2-template
+- [冰箱控制 H5 模板](https://github.com/jd-smart-fe/welink-template/tree/master/fridge-template)
+: fridge-template
 
