@@ -48,4 +48,6 @@ $ npm run dev
 : conditioning-JL2-template
 - [冰箱控制 H5 模板](https://github.com/jd-smart-fe/welink-template/tree/master/fridge-template)
 : fridge-template
+- [云端定时 H5 模板](https://github.com/jd-smart-fe/welink-template/tree/master/timing-task-template)
+: timing-task-template
 
