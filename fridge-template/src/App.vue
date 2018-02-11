@@ -1,7 +1,7 @@
 <template>
   <div id="app">
 
-    <!-- debug -->
+    <!-- debug 点击页面右上角 10 次可以打开 debug 窗口-->
     <div v-if="UsingDebug" class="debug-button" @click="showDebugInfo += 1"></div>
     <div v-if="UsingDebug" id="debugarea" v-show="showDebugInfo > 10">
       <button @click="showDebugInfo = 0"> close </button>
@@ -225,16 +225,8 @@ export default {
       }
     },
 
-    offline(val) {
-      if (!val) {
-        window.smartSDK.setNavigationConfig({ showOnline: false });
-        return;
-      }
-      this.$toast.show({
-        text: '冰箱已断开连接',
-        duration: 3000,
-      });
-      window.smartSDK.setNavigationConfig({ showOnline: true });
+    offline() {
+      this.checkOfflineHandler();
     },
   },
 
@@ -248,7 +240,10 @@ export default {
     window.pageVisibility.visibilitychange(() => {
       if (window.pageVisibility.hidden === false) {
         this.debug('visibility change');
-        this.getSnapshot();
+        this.getSnapshot(() => {
+          // 获取快照成功后看看是否再需要 toast 提醒一次。
+          this.checkOfflineHandler();
+        });
       }
     });
 
@@ -420,6 +415,18 @@ export default {
         this.getSnapshot();   // 再取一次快照
         typeof fail === 'function' ? fail(error) : 0;  // 失败回调
       });
+    },
+
+    checkOfflineHandler() {
+      if (!this.offline) {
+        window.smartSDK.setNavigationConfig({ showOnline: false });
+        return;
+      }
+      this.$toast.show({
+        text: '冰箱已断开连接',
+        duration: 3000,
+      });
+      window.smartSDK.setNavigationConfig({ showOnline: true });
     },
 
     debug(...p) {

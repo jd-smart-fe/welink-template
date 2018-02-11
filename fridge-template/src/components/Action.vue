@@ -66,7 +66,7 @@ export default {
 };
 </script>
 
-<style lang="css">
+<style lang="postcss">
 .action {
   width: 100%;
   background: #fff;

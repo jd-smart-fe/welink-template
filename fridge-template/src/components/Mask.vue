@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'mask',
+  name: 'masks',
   props: {
     show: {
       type: Boolean,

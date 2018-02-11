@@ -99,7 +99,7 @@
   };
 </script>
 
-<style>
+<style lang="postcss">
 
   $l-radius: 3px;
   $prefix: .c-toast;

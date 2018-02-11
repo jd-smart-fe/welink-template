@@ -22,19 +22,21 @@
           </span>
         </div>
         <div v-if="is_step" class="c-range-slider-step">
-          <span v-for="info in dotInfoList" class="step-dot" :style="{left : info.left + '%'}"></span>
+          <span v-for="(info, index) in dotInfoList" :key="index" class="step-dot" :style="{left : info.left + '%'}"></span>
         </div>
       </div>
     </div>
     <div v-if="dots.length > 0" class="c-range-dots">
       <template v-if="show_icon_dots">
         <span v-for="(info, index) in dotInfoList"
+          :key="index"
           :class="[' dot-icon ', ' dot-icon-' + index, ' icon-' + info.icon]"
           :style="{left : info.left + '%'}">
         </span>
       </template>
       <template v-if="show_text_dots">
         <span v-for="(info, index) in dotInfoList"
+          :key="index"
           class="dot-item"
           :style="{left : info.left + '%'}"
         >{{info.text}}</span>
@@ -437,7 +439,7 @@
   };
 </script>
 
-<style>
+<style lang="postcss">
   $range-padding-y: 0.16rem;
   $range-slide-height: 0.02rem;
   $range-slide-button-size: 0.38rem;

@@ -31,7 +31,7 @@
   };
 </script>
 
-<style lang="css">
+<style lang="postcss">
   .loading {
     position: fixed;
     left: 0;
