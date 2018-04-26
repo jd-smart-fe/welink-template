@@ -1,7 +1,7 @@
 /* eslint-disable */
 class SmartSDK {
   static WAENMESSAGE = '请检查是否是native环境';
-  static BACKURL = ''; // 返回业务页面 比如index.html
+  static BACKURL = 'index.html'; // 返回业务页面 比如index.html
   // 头部调用方案
   static titleBar(type, left, right, fun1, fun2, title) {
       let w,display,cab;

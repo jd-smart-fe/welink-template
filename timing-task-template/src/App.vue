@@ -165,6 +165,7 @@ export default {
   name: 'app',
   data() {
     return {
+      timerSet: null,
       show: false,
       feedid: '',
       taskno: true,
@@ -244,6 +245,13 @@ export default {
         this.feedid = devices.feed_id;
         this.isOnlineState(state);
         this.getAllTasks();
+        if (this.timerSet !== null) {
+          clearInterval(this.timerSet);
+          this.timerSet = null;
+        }
+        this.timerSet = setInterval(() => {
+          this.getAllTasks();
+        }, 4000);
       });
     },
     isOnlineState(data) { // 判断是否在线
@@ -286,7 +294,7 @@ export default {
             objLogs.name = arrChd.task_name;
             objLogs.date_time = arrChd.excute_time;
             objLogs.time = arrChd.excute_time.substring(11, 16);
-            objLogs.dates = `${arrChd.excute_time.substring(5, 7)}月${arrChd.excute_time.substring(8, 10)}日`;
+            objLogs.date = `${arrChd.excute_time.substring(5, 7)}月${arrChd.excute_time.substring(8, 10)}日`;
             if (window.parseInt(arrChd.result) === 1) {
               objLogs.text = '执行成功';
               objLogs.color = 'clorout';
@@ -492,6 +500,10 @@ export default {
       window.SmartSDK.pageShow(1);
       window.SmartSDK.titleBar('one', 'drawable_back', 'drawable_add', 'toBackHtml', 'addTask', '定时设置');
       window.toBackHtml = () => {
+        if (this.timerSet !== null) {
+          clearInterval(this.timerSet);
+          this.timerSet = null;
+        }
         window.SmartSDK.urlToBack();
       };
       window.addTask = this.addTaskOne;
