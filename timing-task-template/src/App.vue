@@ -599,7 +599,7 @@ export default {
       const params = { timed_task: JSON.stringify(this.timed_task) };
       window.SmartSDK.updataTaskTiming(params,
       (json) => {
-        window.SmartSDK.toast(JSON.stringify(json));
+        // window.SmartSDK.toast(JSON.stringify(json));
         if (window.parseInt(json.result.task_id) === 0) {
           window.SmartSDK.toast('咦！您设置的定时任务与之前的定时任务有冲突，请您重新设置哦！');
         } else {
