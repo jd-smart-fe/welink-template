@@ -134,6 +134,7 @@
      </div>
     </section>
   <div class="mask" v-show="show"></div>
+  <div class="maskout" v-show="show2"></div>
   </div>
 </template>
 <script>
@@ -167,6 +168,8 @@ export default {
     return {
       timerSet: null,
       show: false,
+      show2: false,
+      saveTaskadd: true,
       feedid: '',
       taskno: true,
       taskName: true,
@@ -237,6 +240,14 @@ export default {
     });
   },
   methods: {
+    showloading() {
+      this.$loading.show();
+      this.show2 = true;
+    },
+    hideloading() {
+      this.$loading.hide();
+      this.show2 = false;
+    },
     init() { // 判断在线状态 获取定时任务
       window.SmartSDK.initDevice((json) => {
         // 解析在线状态
@@ -438,7 +449,9 @@ export default {
     },
     deleteOneTask(type) {
       const commnd = { task_ids: `[${this.editigId}]` };
+      this.showloading();
       window.SmartSDK.deleteTaskTiming(commnd, (json) => {
+        this.hideloading();
         window.console.log(json);
         this.getAllTasks();
         window.SmartSDK.toast('删除成功!');
@@ -449,6 +462,7 @@ export default {
         }
       },
       (err) => {
+        this.hideloading();
         window.console.log(err);
         window.SmartSDK.toast('删除失败!');
         if (type === 'out') {
@@ -551,16 +565,22 @@ export default {
       const params = { timed_task: JSON.stringify(this.timed_task) };
       window.SmartSDK.addTaskTiming(params,
       (json) => {
-        if (window.parseInt(json.result.task_id) === 0) {
+        this.saveTaskadd = true;
+        this.hideloading();
+        let res = json.result;
+        res = typeof res === 'string' ? JSON.parse(res) : res;
+        if (window.parseInt(res.task_id) === 0) {
           window.SmartSDK.toast('咦！您设置的定时任务与之前的定时任务有冲突，请您重新设置哦！');
         } else {
           window.SmartSDK.toast('保存成功');
           this.taskfirstBar();
           this.getAllTasks();
-          window.SmartSDK.serTimeBig(json.result.server_time);
+          window.SmartSDK.serTimeBig(res.server_time);
         }
       },
       (err) => {
+        this.saveTaskadd = true;
+        this.hideloading();
         window.console.log(err);
         window.SmartSDK.toast('保存失败,定时已存在或网络异常');
       });
@@ -599,22 +619,32 @@ export default {
       const params = { timed_task: JSON.stringify(this.timed_task) };
       window.SmartSDK.updataTaskTiming(params,
       (json) => {
-        // window.SmartSDK.toast(JSON.stringify(json));
-        if (window.parseInt(json.result.task_id) === 0) {
+        this.saveTaskadd = true;
+        this.hideloading();
+        let res = json.result;
+        res = typeof res === 'string' ? JSON.parse(res) : res;
+        if (window.parseInt(res.task_id) === 0) {
           window.SmartSDK.toast('咦！您设置的定时任务与之前的定时任务有冲突，请您重新设置哦！');
         } else {
           window.SmartSDK.toast('保存成功');
           this.taskfirstBar();
           this.getAllTasks();
-          window.SmartSDK.serTimeBig(json.result.server_time);
+          window.SmartSDK.serTimeBig(res.server_time);
         }
       },
       (err) => {
+        this.saveTaskadd = true;
+        this.hideloading();
         window.console.log(err);
         window.SmartSDK.toast('保存失败,定时已存在或网络异常');
       });
     },
     saveTaskTiming() {
+      if (!this.saveTaskadd) {
+        return;
+      }
+      this.saveTaskadd = false;
+      this.showloading();
       if (this.isAddOrUpdate === 'add') {
         this.addTaskSave();
       } else {
