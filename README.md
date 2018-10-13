@@ -14,8 +14,10 @@ $ npm install
 $ npm run dev
 ```
 
-## Template List 
+## Template List
 模版路径及对应名称如下：
+### 微联本地调试工具模板
+- [vue 模板](https://github.com/jd-smart-fe/welink-template/tree/master/devtool-vue-template) : devtool-vue-template
 ### JoyLink 3.0
 
 - [空气净化器3.0协议 H5 模板](https://github.com/jd-smart-fe/welink-template/tree/master/aircleaner-JL3-template)
