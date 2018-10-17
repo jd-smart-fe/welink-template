@@ -1,6 +1,6 @@
 # welink-devtool-template
 
-> A Vue.js project
+> 微联本地调试 vue 模板
 
 ## Build Setup
 
@@ -17,5 +17,10 @@ npm run build
 # build for production and view the bundle analyzer report
 npm run build --report
 ```
+### 微联sdk
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+**不用引用微联sdk，`npm run build` 的时候会自动引用。**
+
+### welinkconfig.json
+
+**不要修改 `staticPath` 参数**

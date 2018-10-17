@@ -17,7 +17,7 @@ var koaWebpack = require('koa-webpack');
 
 
 
-var compiler = webpack(webpackConfig)
+var compiler = webpack(webpackConfig);
 
 
 // serve pure static assets

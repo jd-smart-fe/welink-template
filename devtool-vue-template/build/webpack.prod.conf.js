@@ -14,6 +14,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 const env = require('../config/prod.env')
+const InsertJavaScriptBridgePlugin = require('../InsertJavaScriptBridgePlugin');
 
 const webpackConfig = merge(baseWebpackConfig, {
   mode: 'production',
@@ -77,6 +78,7 @@ const webpackConfig = merge(baseWebpackConfig, {
       // necessary to consistently work with multiple chunks via CommonsChunkPlugin
       chunksSortMode: 'dependency'
     }),
+    new InsertJavaScriptBridgePlugin(),
     // keep module.id stable when vendor modules does not change
     new webpack.HashedModuleIdsPlugin(),
     // enable scope hoisting
