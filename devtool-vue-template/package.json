@@ -54,7 +54,7 @@
     "webpack-dev-server": "^2.9.1",
     "webpack-merge": "^4.1.0",
     "welink-devtool": "^0.3.1",
-    "welink-devtool-sdk": "^1.0.3"
+    "welink-devtool-sdk": "^1.0.15"
   },
   "engines": {
     "node": ">= 6.0.0",

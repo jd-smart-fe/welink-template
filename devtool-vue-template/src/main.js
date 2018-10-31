@@ -5,7 +5,8 @@ import App from './App';
 
 /* eslint disable next line */
 if (process.env.NODE_ENV === 'development') {
-  require('welink-devtool-sdk');
+  const jdsmart = require('welink-devtool-sdk');
+  window.JDSMART = jdsmart;
 }
 
 Vue.config.productionTip = false;
