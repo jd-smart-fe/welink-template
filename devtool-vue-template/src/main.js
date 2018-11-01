@@ -2,15 +2,17 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue';
 import App from './App';
-import './libs/SmartSDKUtils';
 
 /* eslint disable next line */
 if (process.env.NODE_ENV === 'development') {
   const jdsmart = require('welink-devtool-sdk');
   window.JDSMART = jdsmart;
 }
+import './libs/SmartSDKUtils';
 
 Vue.config.productionTip = false;
+
+window.SmartSDK = SmartSDK;
 
 /* eslint-disable no-new */
 new Vue({
