@@ -10,8 +10,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
-
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const env = require('../config/prod.env')
 const InsertJavaScriptBridgePlugin = require('../InsertJavaScriptBridgePlugin');
@@ -122,6 +123,14 @@ const webpackConfig = merge(baseWebpackConfig, {
     //   }
     // ])
     new VueLoaderPlugin(),
+    new webpack.DllReferencePlugin({
+      context: __dirname,
+      manifest: require('./vendor-manifest.json')
+    }),
+    new CopyWebpackPlugin([
+      { from: 'static', to: 'static' }
+    ]),
+    new CleanWebpackPlugin(['dist'])
   ],
 })
 

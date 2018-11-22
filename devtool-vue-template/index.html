@@ -7,6 +7,27 @@
   </head>
   <body>
     <div id="app"></div>
+    <script>
+      (function() {
+        var baseFontSize = 100;
+        var baseWidth = 375;
+
+        var set = function() {
+          var clientWidth = document.documentElement.clientWidth || window.innerWidth;
+
+          var rem = 100;
+          if (clientWidth != baseWidth) {
+            rem = Math.floor(clientWidth / baseWidth * baseFontSize);
+          }
+
+          document.querySelector('html').style.fontSize = rem + 'px';
+        }
+        set();
+
+        window.addEventListener('resize', set);
+      }());
+    </script>
+    <script src="./static/js/vendor.dll.js"></script>
     <!-- built files will be auto injected -->
   </body>
 </html>
