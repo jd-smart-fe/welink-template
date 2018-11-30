@@ -8,7 +8,7 @@ if (process.env.NODE_ENV === 'development') {
   const jdsmart = require('welink-devtool-sdk');
   window.JDSMART = jdsmart;
 }
-import './libs/SmartSDKUtils';
+import SmartSDK from './libs/SmartSDKUtils';
 
 Vue.config.productionTip = false;
 
