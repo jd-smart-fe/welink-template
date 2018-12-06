@@ -12,7 +12,6 @@ img{ width:100%; height:auto;border:none; interpolation-mode: bicubic;border:0;v
 .txt-justify{ text-align:justify; text-justify:inter-ideograph;}
 a,button,input,i{-webkit-tap-highlight-color:rgba(0,0,0,0); -moz-tap-highlight-color:rgba(0,0,0,0); -ms-tap-highlight-color:rgba(0,0,0,0);tap-highlight-color:rgba(0,0,0,0); padding:0; margin:0; font-weight:normal;}
 
-.blue{ color:#0096d6}
 header{ position:relative;position:relative; overflow: hidden; color: #fff; z-index:9; text-align:center; padding: 3% 0;width:100%}
 
 header .temperabox{width:80%; margin: auto; overflow: hidden; border-radius: 50%;}

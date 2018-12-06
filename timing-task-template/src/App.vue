@@ -437,7 +437,7 @@ export default {
     },
     deleteOnelog(data) {
       const cmd = { feed_id: this.feedid,
-        excute_times: [{ excute_time: data.date_time.substring(0, 16), stream_id: 'power' }] };
+        excute_times: [{ excute_time: data.date_time.substring(0, 16), stream_id: 'Power' }] };
       window.SmartSDK.deleteTaskTimingLog(cmd, (json) => {
         window.SmartSDK.toast('删除成功');
         this.getLogLists();
@@ -670,7 +670,7 @@ export default {
       this.task_type_text = '执行一次';
       this.grid_active = 1;
       this.timed_task.task_express = [{ feed_id: this.feedid,
-        stream: [{ stream_id: 'power', stream_value: 1 }] }];
+        stream: [{ stream_id: 'Power', stream_value: 1 }] }];
       this.timed_task.task_name = '定时开机';
       this.timed_task.pmg_setting = 1;
       this.pmg_text = '均通知';
@@ -721,7 +721,7 @@ export default {
       const taskDo = window.SmartSDK.passDate(obj.task_express[0].stream);
       this.timed_task.task_time_express = typeArr[3];
       this.timed_task.task_express = [{ feed_id: this.feedid,
-        stream: [{ stream_id: 'power', stream_value: taskDo }] }];
+        stream: [{ stream_id: 'Power', stream_value: taskDo }] }];
       this.grid_active = taskDo;
     },
   },
