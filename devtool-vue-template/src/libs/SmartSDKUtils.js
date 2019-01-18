@@ -3,20 +3,17 @@
  * @description  对jdsmart-1.0.3.js中的常用方法进行二次封装，可自行根据业务扩展
  * @author  shilili1
  */
-
 class SmartSDK {
-
   /**
    * @name ready
    * @description 桥已经准备好了
    */
   static ready() {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
       window.JDSMART.ready(() => {
-        console.log('=====');
         resolve();
       });
-    })
+    });
   }
 
   /**
@@ -69,7 +66,7 @@ class SmartSDK {
   // toast
   static toast(str) {
     window.JDSMART.app.toast({
-      message: str
+      message: str,
     }, null);
   }
 
@@ -78,12 +75,12 @@ class SmartSDK {
    * @description 初始化设备数据
    */
   static initDevice() {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
       window.JDSMART.io.initDeviceData((json) => {
         const res = typeof json === 'string' ? JSON.parse(json) : json;
-        resolve(json);
-      })
-    })
+        resolve(res);
+      });
+    });
   }
 
   /**
@@ -100,9 +97,9 @@ class SmartSDK {
         (err) => {
           reject(err);
           this.toast(err.errorInfo);
-        }
-      )
-    })
+        },
+      );
+    });
   }
 
   /**
@@ -113,7 +110,7 @@ class SmartSDK {
   static setOnlineStatus(status) {
     window.JDSMART.app.config({
       showOnline: status,
-    })
+    });
   }
 
   /**
@@ -128,7 +125,7 @@ class SmartSDK {
       paramArr.push({
         'stream_id': key,
         'current_value': params[key],
-      })
+      });
     });
 
     if (paramArr.length === 0) {
@@ -138,18 +135,17 @@ class SmartSDK {
 
     return new Promise((resolve, reject) => {
       window.JDSMART.io.controlDevice({
-          'command': paramArr,
-        },
-        (json) => {
-          const res = typeof json ? JSON.parse(json) : json;
-          resolve(res);
-        },
-        (err) => {
-          reject(err);
-          this.toast(err.errorInfo);
-        }
-      )
-    })
+        'command': paramArr,
+      },
+      (json) => {
+        const res = typeof json ? JSON.parse(json) : json;
+        resolve(res);
+      },
+      (err) => {
+        reject(err);
+        this.toast(err.errorInfo);
+      });
+    });
   }
 }
 

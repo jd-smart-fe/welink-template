@@ -5,10 +5,9 @@ const config = require('../config')
 const merge = require('webpack-merge')
 const path = require('path')
 const baseWebpackConfig = require('./webpack.base.conf')
-// const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-// const CopyWebpackPlugin = require('copy-webpack-plugin');
-// const CleanWebpackPlugin = require('clean-webpack-plugin');
+// var CopyWebpackPlugin = require('copy-webpack-plugin')
+// var CleanWebpackPlugin = require('clean-webpack-plugin')
 
 const portfinder = require('portfinder')
 
@@ -72,7 +71,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     // new CopyWebpackPlugin([
     //   { from: 'static', to: 'static' }
     // ]),
-    // new CleanWebpackPlugin(['dist'])
+    // new CleanWebpackPlugin(['dist']),
   ]
 })
 

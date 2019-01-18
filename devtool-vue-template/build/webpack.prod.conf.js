@@ -9,10 +9,11 @@ const baseWebpackConfig = require('./webpack.base.conf')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
-// // const CopyWebpackPlugin = require('copy-webpack-plugin');
-// const CleanWebpackPlugin = require('clean-webpack-plugin');
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+// const CopyWebpackPlugin = require('copy-webpack-plugin')
+// const CleanWebpackPlugin = require('clean-webpack-plugin')
 
 const env = require('../config/prod.env')
 const InsertJavaScriptBridgePlugin = require('../InsertJavaScriptBridgePlugin');
@@ -166,6 +167,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     //   { from: 'static', to: 'static' }
     // ]),
     // new CleanWebpackPlugin(['dist'])
+    // new BundleAnalyzerPlugin(),
   ],
 })
 
@@ -185,11 +187,6 @@ if (config.build.productionGzip) {
       minRatio: 0.8
     })
   )
-}
-
-if (config.build.bundleAnalyzerReport) {
-  const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
-  webpackConfig.plugins.push(new BundleAnalyzerPlugin())
 }
 
 module.exports = webpackConfig
