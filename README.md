@@ -8,11 +8,12 @@
 
 ```bash
 $ npm install -g welink-cli
-$ welink init <template> <project>
+$ welink init  <project>
 $ cd <project>
 $ npm install
 $ npm run dev
 ```
+注意:  在执行 ``welink init <project> `` 的时候会提供自动选择模板
 
 ## Template List
 模版路径及对应名称如下：
