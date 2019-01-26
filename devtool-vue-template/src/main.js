@@ -7,15 +7,18 @@ import 'vue-stone/dist/vue-stone.css';
 
 // 如果你需要使用组件库中字体图标，请单独引入字体图标的 CSS 文件
 import 'vue-stone/dist/iconfonts.css';
-import SmartSDK from './libs/SmartSDKUtils';
+
+// 引入工具类
+import * as smartUtils from './utils';
 
 if (process.env.NODE_ENV === 'development') {
   const jdsmart = require('welink-devtool-sdk');
   window.JDSMART = jdsmart;
 }
 
+// 工具类挂载到 Vue 原型上方便使用
+Vue.prototype.$smartUtils = smartUtils;
 
-window.SmartSDK = SmartSDK;
 
 Vue.config.productionTip = false;
 

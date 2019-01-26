@@ -3,6 +3,7 @@
  * @description  对jdsmart-1.0.3.js中的常用方法进行二次封装，可自行根据业务扩展
  * @author  shilili1
  */
+
 class SmartSDK {
   /**
    * @name ready
@@ -11,6 +12,7 @@ class SmartSDK {
   static ready() {
     return new Promise((resolve) => {
       window.JDSMART.ready(() => {
+        window.console.log('=====');
         resolve();
       });
     });
@@ -59,18 +61,6 @@ class SmartSDK {
   }
 
   /**
-   * @name toast
-   * @description toast 提示
-   * @param {String} str
-   */
-  // toast
-  static toast(str) {
-    window.JDSMART.app.toast({
-      message: str,
-    }, null);
-  }
-
-  /**
    * @name initDevice
    * @description 初始化设备数据
    */
@@ -96,7 +86,6 @@ class SmartSDK {
         },
         (err) => {
           reject(err);
-          this.toast(err.errorInfo);
         },
       );
     });
@@ -135,9 +124,8 @@ class SmartSDK {
 
     return new Promise((resolve, reject) => {
       window.JDSMART.io.controlDevice({
-        'command': paramArr,
-      },
-      (json) => {
+        command: paramArr,
+      }, (json) => {
         const res = typeof json ? JSON.parse(json) : json;
         resolve(res);
       },
